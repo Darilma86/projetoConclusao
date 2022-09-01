@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Produtos</h1>
+
+
+<a style="float:right;" class="btn btn-sm btn-primary mt-1" href="/produtos/new">Novo Produto</a>
+<br>
+<br>
+<table class="table table-hover my-0">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Tipo</th>
+      <th>Descricao</th>
+      <th>Numero</th>
+      <th>Preco compra</th>
+      <th>Preco venda</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produtos.each do |produto| %>
+      <tr>
+        <td><%= produto.nome %></td>
+        <td><%= produto.tipo %></td>
+        <td><%= produto.descricao %></td>
+        <td><%= produto.numero %></td>
+        <td><%= produto.preco_compra %></td>
+        <td><%= produto.preco_venda %></td>
+        <td><%= link_to '<i class="align-middle" data-feather="eye"></i>'.html_safe, produto %></td>
+        <td><%= link_to '<i class="align-middle" data-feather="edit"></i>'.html_safe, edit_produto_path(produto) %></td>
+        <td><%= link_to '<i class="align-middle" data-feather="trash"></i>'.html_safe, produto, method: :delete, data: { confirm: 'Deseja deletar o Produto?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

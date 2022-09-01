@@ -1,0 +1,66 @@
+<%= form_for(cliente) do |f| %>
+  <% if cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+
+      <ul>
+      <% cliente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome, :class=>"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :endereco %>
+    <%= f.text_field :endereco, :class=>"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :celular %>
+    <%= f.text_field :celucar, :class=>"form-control", :id=>"phone" %>
+     <small class="text-muted">ex. (99) 99999-9999</small>
+  </div>
+
+  <div class="field">
+    <%= f.label :rg %>
+    <%= f.text_field :rg, :class=>"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sexo %>
+    <%= f.select :sexo, options_for_select([ "Masculino", "Feminino" ], "Masculino"),{}, { :class => 'form-control' }%>
+    
+  </div>
+
+  <div class="field">
+    <%= f.label :data_nasciemnto %>
+     <%= f.text_field :data_nasciemnto, :class=>"form-control", :id=>"date-input", :type=>"date" %>
+    
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email, :class=>"form-control", :type=>"email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cidade %>
+    <%= f.text_field :cidade, :class=>"form-control" %>
+  </div>
+
+  <br><br>
+  <div class="actions">
+    <%= link_to 'Voltar', clientes_path, :class=>"btn btn-dark" %>
+   <%= f.submit :class=>"btn btn-primary", :value=>"Salvar Cliente" %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+$('#phone').mask('(99) 99999-9999');
+</script> 
