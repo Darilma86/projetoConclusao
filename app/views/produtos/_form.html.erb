@@ -1,0 +1,50 @@
+<%= form_for(produto) do |f| %>
+  <% if produto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
+
+      <ul>
+      <% produto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome, :class=>"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tipo %>
+    <%= f.text_field :tipo, :class=>"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descricao %>
+    <%= f.text_field :descricao, :class=>"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :numero %>
+    <%= f.text_field :numero, :class=>"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :preco_compra %>
+    <%= f.text_field :preco_compra, :class=>"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :preco_venda %>
+    <%= f.text_field :preco_venda, :class=>"form-control" %>
+  </div>
+  <br>
+  <br>
+
+  <div class="actions">
+  <%= link_to 'Voltar', produtos_path, :class=>"btn btn-dark" %>
+    <%= f.submit :class=>"btn btn-primary", :value=>"Salvar Produto" %>
+  </div>
+<% end %>

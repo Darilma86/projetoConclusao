@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @cliente.nome %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @cliente.endereco %>
+</p>
+
+<p>
+  <strong>Celucar:</strong>
+  <%= @cliente.celucar %>
+</p>
+
+<p>
+  <strong>Rg:</strong>
+  <%= @cliente.rg %>
+</p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @cliente.sexo %>
+</p>
+
+<p>
+  <strong>Data nasciemnto:</strong>
+  <%= @cliente.data_nasciemnto %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @cliente.email %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @cliente.cidade %>
+</p>
+
+<%= link_to 'Voltar', clientes_path, :class=>"btn btn-dark"%> |
+<%= link_to 'Editar', edit_cliente_path(@cliente), :class=>"btn btn-primary" %> 

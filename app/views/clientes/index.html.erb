@@ -1,0 +1,43 @@
+<h1>Clientes</h1>
+
+<%= link_to 'Novo Cliente', new_cliente_path, :style=> "float:right;", :class=>"btn btn-sm btn-primary mt-1" %>
+
+<br>
+<br>
+<table class="table table-hover my-0">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Endereço</th>
+      <th>Celular</th>
+      <th>RG</th>
+      <th>Sexo</th>
+      <th>Data Nasciemnto</th>
+      <th>Email</th>
+      <th>Cidade</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clientes.each do |cliente| %>
+      <tr>
+        <td><%= cliente.nome %></td>
+        <td><%= cliente.endereco %></td>
+        <td><%= cliente.celucar %></td>
+        <td><%= cliente.rg %></td>
+        <td><%= cliente.sexo %></td>
+        <td><%= cliente.data_nasciemnto %></td>
+        <td><%= cliente.email %></td>
+        <td><%= cliente.cidade %></td>
+        <td><%= link_to '<i class="align-middle" data-feather="eye"></i>'.html_safe, cliente %></td>
+        <td><%= link_to '<i class="align-middle" data-feather="edit"></i>'.html_safe, edit_cliente_path(cliente) %></td>
+        <td><%= link_to '<i class="align-middle" data-feather="trash"></i>'.html_safe, cliente, method: :delete, data: { confirm: 'Deseja Deletar?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

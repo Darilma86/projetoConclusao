@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @produto.nome %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @produto.tipo %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @produto.descricao %>
+</p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @produto.numero %>
+</p>
+
+<p>
+  <strong>Preco compra:</strong>
+  <%= @produto.preco_compra %>
+</p>
+
+<p>
+  <strong>Preco venda:</strong>
+  <%= @produto.preco_venda %>
+</p>
+
+<%= link_to 'Voltar', produtos_path, :class=>"btn btn-dark" %>
+<%= link_to 'Editar', edit_produto_path(@produto), :class=>"btn btn-primary" %> |
+
