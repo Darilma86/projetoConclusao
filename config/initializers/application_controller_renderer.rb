@@ -6,3 +6,4 @@
 #     https: false
 #   )
 # end
+WillPaginate.per_page = 1
