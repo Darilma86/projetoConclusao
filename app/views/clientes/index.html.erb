@@ -1,16 +1,28 @@
 <h1>Clientes</h1>
 
 <%= link_to 'Novo Cliente', new_cliente_path, :style=> "float:right;", :class=>"btn btn-sm btn-primary mt-1" %>
-
 <br>
+<%= search_form_for @q do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name_cont , class: 'form-control'%>
+   
+    <%= f.label :cpf %>
+     <%= f.text_field :cpf_eq, class: 'form-control' %>
+      <br>
+  <%= f.submit "Buscar", class: 'btn btn-primary'%> 
+  <%= link_to "Limpar busca", request.path, class: "btn btn-dark" %>
+<% end %>
+
+<br> 
 <br>
 <table class="table table-hover my-0">
   <thead>
     <tr>
       <th>Nome</th>
+      <th>RG</th>
+      <th>CPF</th>
       <th>Endereço</th>
       <th>Celular</th>
-      <th>RG</th>
       <th>Sexo</th>
       <th>Data Nasciemnto</th>
       <th>Email</th>
@@ -22,10 +34,11 @@
   <tbody>
     <% @clientes.each do |cliente| %>
       <tr>
-        <td><%= cliente.nome %></td>
+        <td><%= cliente.name %></td>
+        <td><%= cliente.rg %></td>
+        <td><%= cliente.cpf %></td>
         <td><%= cliente.endereco %></td>
         <td><%= cliente.celucar %></td>
-        <td><%= cliente.rg %></td>
         <td><%= cliente.sexo %></td>
         <td><%= cliente.data_nasciemnto %></td>
         <td><%= cliente.email %></td>
@@ -37,7 +50,10 @@
     <% end %>
   </tbody>
 </table>
-
+<br> 
 <br>
+<%= will_paginate @clientes %>
+
+
 
 

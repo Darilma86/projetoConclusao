@@ -3,8 +3,14 @@ class ClientesController < ApplicationController
   before_action :authenticate_user!
   
   # GET /clientes or /clientes.json
-  def index
-    @clientes = Cliente.all
+  def index 
+    
+    
+     @q = Cliente.ransack(params[:q])
+     @clientes = @q.result.page(params[:page])
+    #@clientes = Cliente.all.paginate(page: params[:page])
+    
+   
   end
 
   # GET /clientes/1 or /clientes/1.json
@@ -66,6 +72,6 @@ class ClientesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cliente_params
-      params.require(:cliente).permit(:nome, :endereco, :celucar, :rg, :sexo, :data_nasciemnto, :email, :cidade)
+      params.require(:cliente).permit(:name, :rg, :cpf, :endereco, :celucar, :sexo, :data_nasciemnto, :email, :cidade)
     end
 end

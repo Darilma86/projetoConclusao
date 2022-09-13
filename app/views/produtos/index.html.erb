@@ -2,14 +2,27 @@
 
 <h1>Produtos</h1>
 
-
 <a style="float:right;" class="btn btn-sm btn-primary mt-1" href="/produtos/new">Novo Produto</a>
+<br>
+<%= search_form_for @q do |f| %>
+ <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :nome_cont, class: 'form-control' %>
+    <br>
+  
+    </div>
+    <%= f.submit "Buscar", class: 'btn btn-primary'%> 
+    <%= link_to "Limpar busca", request.path, class: "btn btn-dark" %>
+    
+     
+<% end %>
 <br>
 <br>
 <table class="table table-hover my-0">
   <thead>
     <tr>
       <th>Nome</th>
+      <th>Quantidade</th>
       <th>Tipo</th>
       <th>Descricao</th>
       <th>Numero</th>
@@ -23,6 +36,7 @@
     <% @produtos.each do |produto| %>
       <tr>
         <td><%= produto.nome %></td>
+        <td><%= produto.quantidade %></td>
         <td><%= produto.tipo %></td>
         <td><%= produto.descricao %></td>
         <td><%= produto.numero %></td>
@@ -35,6 +49,8 @@
     <% end %>
   </tbody>
 </table>
+<br>
+<%= will_paginate @produtos %>
 
 <br>
 

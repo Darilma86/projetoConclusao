@@ -2,7 +2,17 @@
 
 <p>
   <strong>Nome:</strong>
-  <%= @cliente.nome %>
+  <%= @cliente.name %>
+</p>
+
+<p>
+  <strong>Rg:</strong>
+  <%= @cliente.rg %>
+</p>
+
+<p>
+  <strong>CPF:</strong>
+  <%= @cliente.cpf %>
 </p>
 
 <p>
@@ -13,11 +23,6 @@
 <p>
   <strong>Celucar:</strong>
   <%= @cliente.celucar %>
-</p>
-
-<p>
-  <strong>Rg:</strong>
-  <%= @cliente.rg %>
 </p>
 
 <p>
@@ -40,5 +45,5 @@
   <%= @cliente.cidade %>
 </p>
 
-<%= link_to 'Voltar', clientes_path, :class=>"btn btn-dark"%> |
-<%= link_to 'Editar', edit_cliente_path(@cliente), :class=>"btn btn-primary" %> 
+<%= link_to 'Voltar', clientes_path, :class=>"btn btn-dark"%> 
+ <%= link_to 'Editar', edit_cliente_path(@cliente), :class=>"btn btn-primary" %> 
