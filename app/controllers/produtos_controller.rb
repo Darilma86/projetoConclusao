@@ -5,6 +5,7 @@ class ProdutosController < ApplicationController
   # GET /produtos or /produtos.json
   def index
 <<<<<<< HEAD
+<<<<<<< HEAD
     @produtos = Produto.all
 =======
     
@@ -14,6 +15,9 @@ class ProdutosController < ApplicationController
     #@produtos = Produto.all.paginate(page: params[:page])
     
 >>>>>>> 2b3a84140d0ed681f2e0b6684b260ef8c9f35c15
+=======
+    @produtos = Produto.all.paginate(page: params[:page])
+>>>>>>> 2fcbf82cde8c067fdc426b7919e21a9acf580ea2
   end
 
   # GET /produtos/1 or /produtos/1.json
