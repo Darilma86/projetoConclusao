@@ -4,7 +4,16 @@ class ProdutosController < ApplicationController
   
   # GET /produtos or /produtos.json
   def index
+<<<<<<< HEAD
     @produtos = Produto.all
+=======
+    
+    @q = Produto.ransack(params[:q])
+    @produtos = @q.result.page(params[:page])
+
+    #@produtos = Produto.all.paginate(page: params[:page])
+    
+>>>>>>> 2b3a84140d0ed681f2e0b6684b260ef8c9f35c15
   end
 
   # GET /produtos/1 or /produtos/1.json
@@ -66,6 +75,10 @@ class ProdutosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def produto_params
+<<<<<<< HEAD
       params.require(:produto).permit(:nome, :tipo, :descricao, :numero, :preco_compra, :preco_venda)
+=======
+      params.require(:produto).permit(:nome, :quantidade, :tipo, :descricao, :numero, :preco_compra, :preco_venda)
+>>>>>>> 2b3a84140d0ed681f2e0b6684b260ef8c9f35c15
     end
 end

@@ -37,6 +37,12 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'maskedinput-rails'
+<<<<<<< HEAD
+=======
+gem 'will_paginate', '~> 3.3'
+gem 'ransack', '~> 1.7'
+
+>>>>>>> 2b3a84140d0ed681f2e0b6684b260ef8c9f35c15
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

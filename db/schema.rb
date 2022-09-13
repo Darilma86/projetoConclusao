@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20220826154030) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "nome"
+=======
+ActiveRecord::Schema.define(version: 20220908213150) do
+
+  create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.string   "name"
+>>>>>>> 2b3a84140d0ed681f2e0b6684b260ef8c9f35c15
     t.string   "endereco"
     t.string   "celucar"
     t.string   "rg"
@@ -23,6 +30,23 @@ ActiveRecord::Schema.define(version: 20220826154030) do
     t.string   "cidade"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+<<<<<<< HEAD
+=======
+    t.integer  "cpf"
+  end
+
+  create_table "compras", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.string   "nome_produto"
+    t.date     "data_da_compra"
+    t.float    "preco_Venda",    limit: 24
+    t.integer  "quantidade"
+    t.integer  "cliente_id"
+    t.integer  "produto_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["cliente_id"], name: "index_compras_on_cliente_id", using: :btree
+    t.index ["produto_id"], name: "index_compras_on_produto_id", using: :btree
+>>>>>>> 2b3a84140d0ed681f2e0b6684b260ef8c9f35c15
   end
 
   create_table "produtos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
@@ -34,6 +58,10 @@ ActiveRecord::Schema.define(version: 20220826154030) do
     t.float    "preco_venda",  limit: 24
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+<<<<<<< HEAD
+=======
+    t.integer  "quantidade"
+>>>>>>> 2b3a84140d0ed681f2e0b6684b260ef8c9f35c15
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
@@ -48,4 +76,9 @@ ActiveRecord::Schema.define(version: 20220826154030) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+<<<<<<< HEAD
+=======
+  add_foreign_key "compras", "clientes"
+  add_foreign_key "compras", "produtos"
+>>>>>>> 2b3a84140d0ed681f2e0b6684b260ef8c9f35c15
 end
