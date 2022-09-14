@@ -3,11 +3,7 @@ class ClientesController < ApplicationController
   before_action :authenticate_user!
   
   # GET /clientes or /clientes.json
-<<<<<<< HEAD
-  def index
-<<<<<<< HEAD
-    @clientes = Cliente.all
-=======
+
   def index 
     
     
@@ -16,10 +12,7 @@ class ClientesController < ApplicationController
     #@clientes = Cliente.all.paginate(page: params[:page])
     
    
->>>>>>> 2b3a84140d0ed681f2e0b6684b260ef8c9f35c15
-=======
-    @clientes = Cliente.all.paginate(page: params[:page])
->>>>>>> 2fcbf82cde8c067fdc426b7919e21a9acf580ea2
+
   end
 
   # GET /clientes/1 or /clientes/1.json
@@ -81,10 +74,8 @@ class ClientesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cliente_params
-<<<<<<< HEAD
-      params.require(:cliente).permit(:nome, :endereco, :celucar, :rg, :sexo, :data_nasciemnto, :email, :cidade)
-=======
+
       params.require(:cliente).permit(:name, :rg, :cpf, :endereco, :celucar, :sexo, :data_nasciemnto, :email, :cidade)
->>>>>>> 2b3a84140d0ed681f2e0b6684b260ef8c9f35c15
+
     end
 end
