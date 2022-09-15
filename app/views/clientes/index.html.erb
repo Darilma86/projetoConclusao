@@ -31,7 +31,7 @@
       <%# <th>Data Nasciemnto</th> %>
       <%# <th>Email</th> %>
       <%# <th>Cidade</th> %>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -46,6 +46,7 @@
         <td><%= cliente.celucar %></td>
         
 
+        <td><%= link_to '<i class="align-middle" data-feather="shopping-cart"></i>'.html_safe, cliente_vendas_path(cliente) %></td>  
         <td><%= link_to '<i class="align-middle" data-feather="eye"></i>'.html_safe, cliente %></td>
         <td><%= link_to '<i class="align-middle" data-feather="edit"></i>'.html_safe, edit_cliente_path(cliente) %></td>
         <td><%= link_to '<i class="align-middle" data-feather="trash"></i>'.html_safe, cliente, method: :delete, data: { confirm: 'Deseja Deletar?' } %></td>

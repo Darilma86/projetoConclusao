@@ -1,0 +1,2 @@
+class Venda < ApplicationRecord
+end
