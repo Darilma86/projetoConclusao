@@ -16,11 +16,6 @@
 </p>
 
 <p>
-  <strong>Descricao:</strong>
-  <%= @produto.descricao %>
-</p>
-
-<p>
   <strong>Numero:</strong>
   <%= @produto.numero %>
 </p>
@@ -35,6 +30,12 @@
   <%= @produto.preco_venda %>
 </p>
 
-<%= link_to 'Voltar', produtos_path, :class=>"btn btn-dark" %>
-<%= link_to 'Editar', edit_produto_path(@produto), :class=>"btn btn-primary" %> |
+<p>
+  <strong>Descricao:</strong>
+  <%= @produto.descricao %>
+</p>
+
+
+<%= link_to 'Voltar', produtos_path, :class=>"btn btn-dark" %> 
+<%= link_to 'Editar', edit_produto_path(@produto), :class=>"btn btn-primary" %> 
 
