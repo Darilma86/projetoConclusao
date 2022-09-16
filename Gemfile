@@ -40,6 +40,7 @@ gem 'maskedinput-rails'
 
 gem 'will_paginate', '~> 3.3'
 gem 'ransack', '~> 1.7'
+gem 'will_paginate-bootstrap4'
 
 
 group :development, :test do

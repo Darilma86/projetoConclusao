@@ -28,11 +28,11 @@
     <tr>
       <th>Nome</th>
       <th>Quantidade</th>
-      <th>Tipo</th>
-      <th>Descricao</th>
-      <th>Numero</th>
-      <th>Preco compra</th>
+      <%# <th>Tipo</th> %>
+      <%#<th>Numero</th>
+      <%# <th>Preco compra</th> %>
       <th>Preco venda</th>
+      <th>Descricao</th> 
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -42,11 +42,8 @@
       <tr>
         <td><%= produto.nome %></td>
         <td><%= produto.quantidade %></td>
-        <td><%= produto.tipo %></td>
-        <td><%= produto.descricao %></td>
-        <td><%= produto.numero %></td>
-        <td><%= produto.preco_compra %></td>
-        <td><%= produto.preco_venda %></td>
+        <td><%= produto.preco_venda %>
+        </td><td><%= produto.descricao %></td>
         <td><%= link_to '<i class="align-middle" data-feather="eye"></i>'.html_safe, produto %></td>
         <td><%= link_to '<i class="align-middle" data-feather="edit"></i>'.html_safe, edit_produto_path(produto) %></td>
         <td><%= link_to '<i class="align-middle" data-feather="trash"></i>'.html_safe, produto, method: :delete, data: { confirm: 'Deseja deletar o Produto?' } %></td>
@@ -58,7 +55,5 @@
 <br>
 <%= will_paginate @produtos %>
 
-
-<br>
 
 
