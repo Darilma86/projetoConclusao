@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 20220915004425) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.string   "nome"
     t.string   "endereco"
     t.string   "celucar"
     t.string   "rg"
@@ -23,7 +24,6 @@ ActiveRecord::Schema.define(version: 20220915004425) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "cpf"
-    t.string   "name"
   end
 
   create_table "produtos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
