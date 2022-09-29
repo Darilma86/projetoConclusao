@@ -1,17 +1,29 @@
-class VendasController < ApplicationController
-    before_action :set_cliente, only: %i[ index new ]
+class ComprasController < ApplicationController
+    before_action :set_cliente, only: %i[ new ]
     before_action :authenticate_user!
 
 
-    def index
-        # puts "TESTEEEEEEEEEEEEEEE1"
-        # @cliente.vendas.build
+    def new
+      
+      
+      len = 10
+      protocolo = SecureRandom.alphanumeric(len)
+      
+      puts "PROTOCOLO - #{protocolo}"
+
+
+        @cliente.vendas.build
+        @compra = Compra.new
+        @compra.protocolo = protocolo;
+         
+        
     end
 
 
-    def new
-      puts "TESTEEEEEEEEEEEEEEE1"
-      # @cliente.vendas.build
+    def create
+
+      puts "UOUUUUUUUUU"
+
     end
 
 

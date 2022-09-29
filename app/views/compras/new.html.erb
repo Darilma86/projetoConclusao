@@ -30,7 +30,7 @@
 <br>
 <br>
 
-<%= form_for(@cliente) do |f| %>
+<%= form_for([@cliente, @compra]) do |f| %>
   
 
 
@@ -91,12 +91,12 @@
 
 <br>
 
-
   <div class="actions pull-right">
-    <%= link_to t('all'), new_cliente_venda_path(@cliente), class: 'btn btn-default' %>
+    <%= link_to t('all'), cliente_compras_path(@cliente), class: 'btn btn-default' %>
     <%= f.submit id: 'submit_rh', class: 'btn btn-primary', data: {disable_with: t('processing')} %>
   </div>
  
+
 
 
 

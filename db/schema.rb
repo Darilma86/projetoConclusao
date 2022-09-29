@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220916002152) do
+ActiveRecord::Schema.define(version: 20220928233827) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string   "nome"
     t.string   "endereco"
     t.string   "celucar"
     t.string   "rg"
@@ -24,6 +23,13 @@ ActiveRecord::Schema.define(version: 20220916002152) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "cpf"
+    t.string   "name"
+  end
+
+  create_table "compras", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.string   "protocolo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "produtos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
@@ -52,8 +58,13 @@ ActiveRecord::Schema.define(version: 20220916002152) do
 
   create_table "vendas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.datetime "data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "cliente_id"
+    t.integer  "produto_id"
+    t.integer  "quantidade"
+    t.float    "valor_venda", limit: 24
+    t.integer  "compra_id"
   end
 
 end

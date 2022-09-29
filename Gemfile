@@ -42,6 +42,11 @@ gem 'will_paginate', '~> 3.3'
 gem 'ransack', '~> 1.7'
 gem 'will_paginate-bootstrap4'
 
+gem 'nested_form_fields'
+# gem 'nested_form'
+
+gem 'bootstrap-sass'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

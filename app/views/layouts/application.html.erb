@@ -6,7 +6,8 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
 
-   <%# <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<meta name="turbo-visit-control" content="reload">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   
 
@@ -25,7 +26,7 @@
 
   <% if user_signed_in? %>
 
-     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+     <%# <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> %>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 
 
@@ -113,7 +114,7 @@
     <%= render partial: "layouts/partials/footer" %>
 		</div>
 	</div>
-
+<%# <script src="../../js/nested_form.js"></script> %>
 	<script src="../../js/app.js"></script>
 
 <% else %>
