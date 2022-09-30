@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220928233827) do
+ActiveRecord::Schema.define(version: 20220929142741) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string   "endereco"
+    t.text     "endereco",        limit: 65535
     t.string   "celucar"
     t.string   "rg"
     t.string   "sexo"
     t.date     "data_nasciemnto"
     t.string   "email"
     t.string   "cidade"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "cpf"
     t.string   "name"
   end
