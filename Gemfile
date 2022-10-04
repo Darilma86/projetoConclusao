@@ -40,13 +40,15 @@ gem 'maskedinput-rails'
 
 gem 'will_paginate', '~> 3.3'
 gem 'ransack', '~> 1.7'
-gem 'will_paginate-bootstrap4'
+
 
 gem 'nested_form_fields'
 # gem 'nested_form'
 
 gem 'bootstrap-sass'
 gem 'devise-i18n'
+gem 'brazilian-rails'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
