@@ -53,7 +53,10 @@
 </table>
 
 <br>
-<%= will_paginate @produtos %>
+<div class="digg_pagination"> 
+     <%= will_paginate @produtos, :container => false%> 
+</div>
+
 
 
 
