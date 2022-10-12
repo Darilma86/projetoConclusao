@@ -5,24 +5,28 @@ class ComprasController < ApplicationController
 
     def new
       
-      
-      len = 10
-      protocolo = SecureRandom.alphanumeric(len)
-      
-      puts "PROTOCOLO - #{protocolo}"
-
-
         @cliente.vendas.build
         @compra = Compra.new
-        @compra.protocolo = protocolo;
+        @id = params[:cliente_id]
          
-        
     end
 
 
     def create
 
-      puts "UOUUUUUUUUU"
+      len = 10
+      protocolo = SecureRandom.alphanumeric(len)
+
+      @compra = Compra.new(compra_params)
+      @compra.protocolo = protocolo
+
+      respond_to do |format|
+        if @compra.save
+          format.html { redirect_to clientes_path, notice: "Venda Efetuada com Sucesso!" }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+        end
+      end      
 
     end
 
@@ -35,11 +39,11 @@ class ComprasController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    # def cliente_params
+    def compra_params
 
-    #   params.require(:cliente).permit(:name, :rg, :cpf, :endereco, :celucar, :sexo, :data_nasciemnto, :email, :cidade)
+      params.require(:compra).permit(:cliente_id, vendas_attributes:[:produto_id, :quantidade, :valor_venda, :compra_id, :cliente_id, :_destroy] )
 
-    # end
+    end
 
 
 

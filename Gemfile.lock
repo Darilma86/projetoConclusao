@@ -46,8 +46,6 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
-    bootstrap-will_paginate (1.0.0)
-      will_paginate
     brI18n (3.3.0)
       actionpack (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -217,7 +215,6 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
-  bootstrap-will_paginate
   brazilian-rails
   byebug
   coffee-rails (~> 4.2)

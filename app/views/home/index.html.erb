@@ -1,2 +1,168 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<main class="content">
+				<div class="container-fluid p-0">
+
+					<h1 class="h3 mb-3"><strong>Análise</strong> Dados</h1>
+
+					<div class="row">
+						<div class="col-xl-6 col-xxl-5 d-flex">
+							<div class="w-100">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">Total de Vendas</h5>
+													</div>
+
+													<div class="col-auto">
+														<div class="stat text-primary">
+															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-truck align-middle"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+														</div>
+													</div>
+												</div>
+												<h1 class="mt-1 mb-3"><%= @total_vendas %></h1>
+												<div class="mb-0">
+													
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">Visitors</h5>
+													</div>
+
+													<div class="col-auto">
+														<div class="stat text-primary">
+															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users align-middle"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+														</div>
+													</div>
+												</div>
+												<h1 class="mt-1 mb-3">14.212</h1>
+												<div class="mb-0">
+													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 5.25% </span>
+													<span class="text-muted">Since last week</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">Earnings</h5>
+													</div>
+
+													<div class="col-auto">
+														<div class="stat text-primary">
+															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign align-middle"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+														</div>
+													</div>
+												</div>
+												<h1 class="mt-1 mb-3">$21.300</h1>
+												<div class="mb-0">
+													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
+													<span class="text-muted">Since last week</span>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">Orders</h5>
+													</div>
+
+													<div class="col-auto">
+														<div class="stat text-primary">
+															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart align-middle"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+														</div>
+													</div>
+												</div>
+												<h1 class="mt-1 mb-3">64</h1>
+												<div class="mb-0">
+													<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.25% </span>
+													<span class="text-muted">Since last week</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-6 col-xxl-7">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">Recent Movement</h5>
+								</div>
+								<div class="card-body py-3">
+									<div class="chart chart-sm"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+										<canvas id="chartjs-dashboard-line" style="display: block; width: 796px; height: 252px;" width="796" height="252" class="chartjs-render-monitor"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+							<div class="card flex-fill">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">Últimas Vendas</h5>
+								</div>
+										<table class="table table-hover my-0">
+										<thead>
+											<tr>
+											<th>Cliente</th>
+											<th>Produto</th>
+											<th>Quantidade</th>
+											<th>Valor</th>
+											<th>Data da Compra</th>
+											
+											</tr>
+										</thead>
+
+										<tbody>
+											<% @vendas.each do |venda| %>
+											<tr>
+											
+												<td><%= venda.cliente.name %></td> 
+												<td><%= venda.produto.nome %></td>
+												<td><%= venda.quantidade %></td>
+												<td><%= venda.valor_venda %></td>
+												<td><%= venda.created_at.strftime("%d/%m/%Y - %H:%m") %></td>
+												
+
+											</tr>
+											<% end %>
+										</tbody>
+										</table>
+							</div>
+						</div>
+						<div class="col-12 col-lg-4 col-xxl-3 d-flex">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">Monthly Sales</h5>
+								</div>
+								<div class="card-body d-flex w-100">
+									<div class="align-self-center chart chart-lg"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+										<canvas id="chartjs-dashboard-bar" width="796" height="350" style="display: block; width: 796px; height: 350px;" class="chartjs-render-monitor"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+				</div>
+			</main>

@@ -9,17 +9,17 @@
 	<meta name="turbo-visit-control" content="reload">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  
+
 
      <link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="../../css/app.css" rel="stylesheet">
+	<%# <link href="../../css/app.css" rel="stylesheet">
 	<link href="../../css/bootstrap-alert.css" rel="stylesheet">
-	<link href="../../css/pagination.css" rel="stylesheet" >
+	<link href="../../css/pagination.css" rel="stylesheet" > %>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-	
 
 
-	
+
+
   </head>
 
   <body>
@@ -45,16 +45,16 @@
         </a>
 				<div class="navbar-collapse collapse">
 					<ul class="navbar-nav navbar-align">
-				
+
 						<li class="nav-item dropdown">
-						
+
 							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
                 <i class="align-middle" data-feather="settings"></i>
               </a>
 
 
 						<li class="nav-item dropdown">
-						
+
 							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
                 <i class="align-middle" data-feather="settings"></i>
               </a>
@@ -67,13 +67,13 @@
 							<div class="dropdown-menu dropdown-menu-end">
 
 								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Configurações</a>
-								
+
 								<div class="dropdown-divider"></div>
 								<%= link_to 'Logout', destroy_user_session_path, method: :delete, :class=>"dropdown-item" %>
 
 							 	<%= link_to 'Editar Perfil', edit_user_registration_path, :class=>"dropdown-item" %>
 
-								
+
 								<div class="dropdown-divider"></div>
 								<%= link_to 'Logout', destroy_user_session_path, method: :delete, :class=>"dropdown-item" %>
 <% end %>
@@ -92,8 +92,8 @@
 						<div class="col-12">
 							<div class="card">
                 <div class="card-header">
-           
-				
+
+
                 </div>
                 <div class="card-body">
 						<% if notice.present? %>
@@ -115,8 +115,8 @@
     <%= render partial: "layouts/partials/footer" %>
 		</div>
 	</div>
-<%# <script src="../../js/nested_form.js"></script> %>
-	<script src="../../js/app.js"></script>
+
+	<%# <script src="../../js/app.js"></script> %>
 
 <% else %>
 <!---NÃO LOGADO--->
@@ -143,7 +143,7 @@
 							<div class="card-body">
 								<div class="m-sm-4">
 									<div class="text-center">
-										
+
 									</div>
 
 								<%= render partial: "devise/sessions/new" %>

@@ -1,0 +1,53 @@
+<h1> <i class="align-middle" data-feather="pie-chart"></i> <span class="align-middle" > Relatórios </h1>
+
+<hr>
+
+<br>
+<div style="border-left: 2px solid #073763; padding: 15px; background: #e8f4ff;">
+<%= search_form_for @q do |f| %>
+    <%= f.label :Data_Inicial %>
+    <%= f.text_field :created_at_cont , class: 'form-control', :type=>"date"%>
+   
+    <%= f.label :Data_Final %>
+     <%= f.text_field :created_at_cont, class: 'form-control', :type=>"date" %>
+      <br>
+  <%= f.submit "Buscar", class: 'btn btn-sm btn-primary'%> 
+  <%= link_to "Limpar busca", request.path, class: "btn btn-sm btn-dark" %>
+<% end %>
+</div>
+
+<br> 
+<br>
+<table class="table table-hover my-0">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      
+      <th>Produto</th>
+      <th>Quantidade</th>
+      <th>Valor</th>
+      <th>Data da Compra</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vendas.each do |venda| %>
+      <tr>
+       
+        <td><%= venda.cliente.name %></td> 
+        <td><%= venda.produto.nome %></td>
+        <td><%= venda.quantidade %></td>
+        <td><%= venda.valor_venda %></td>
+        <td><%= venda.created_at.strftime("%d/%m/%Y") %></td>
+        
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div class="digg_pagination"> 
+     <%= will_paginate @vendas, :container => false%> 
+</div>

@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-
+<h1> <i class="align-middle" data-feather="shopping-cart"></i> <span class="align-middle" > Nova Compra </h1>
+<hr>
 <div style="border-left: 2px solid #073763; padding: 15px; background: #e8f4ff;">
 <p>
   <strong>Nome:</strong>
@@ -69,7 +70,9 @@
             
           </div>
 
-                          
+          <%= ff.hidden_field :cliente_id, :value=>"#{@id}" %>
+          
+              
           <div class="col-2">
               <%= f.add_nested_fields_link :vendas, '+', style: "margin-top: 25px;" %>
               <%= ff.remove_nested_fields_link '-', style: "margin-top: 25px;" %>    
@@ -92,8 +95,8 @@
 <br>
 
   <div class="actions pull-right">
-    <%= link_to t('all'), cliente_compras_path(@cliente), class: 'btn btn-default' %>
-    <%= f.submit id: 'submit_rh', class: 'btn btn-primary', data: {disable_with: t('processing')} %>
+    
+    <%= f.submit id: 'submit_rh', class: 'btn btn-success btn-lg', value:"EFETUAR COMPRA"  %>
   </div>
  
 
