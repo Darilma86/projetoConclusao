@@ -83,7 +83,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.12.2)
+    coffee-script-source (1.8.0)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     devise (4.8.1)
@@ -194,7 +194,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.10)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2022.3)
+    tzinfo-data (1.2022.5)
       tzinfo (>= 1.0.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
@@ -218,6 +218,7 @@ DEPENDENCIES
   brazilian-rails
   byebug
   coffee-rails (~> 4.2)
+  coffee-script-source (= 1.8.0)
   devise
   devise-i18n
   jbuilder (~> 2.5)
