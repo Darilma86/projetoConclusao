@@ -14,6 +14,8 @@ class VendasController < ApplicationController
       # @cliente.vendas.build
     end
 
+    def show
+    end
 
 
     private

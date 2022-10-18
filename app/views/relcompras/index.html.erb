@@ -1,0 +1,34 @@
+<h1> <i class="align-middle" data-feather="shopping-cart"></i> <span class="align-middle" > Relatorio de Compras</h1>
+
+<hr>
+
+<br>
+
+
+<br> 
+<br>
+<table class="table table-hover my-0">
+  <thead>
+    <tr>
+      <th>Protocolo da compra</th>  
+      <th>Data da Compra</th>     
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @compras.each do |compra| %>
+      <tr>
+        <td> <%= link_to compra.protocolo, venda_path(:protocolo)%> </td>
+  
+       <td><%= compra.created_at.strftime("%d/%m/%Y") %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="digg_pagination"> 
+     <%= will_paginate @compras, :container => false%> 
+</div>

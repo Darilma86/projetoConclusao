@@ -3,6 +3,9 @@ class ComprasController < ApplicationController
     before_action :authenticate_user!
 
 
+      def
+        @compras = Compra.all
+        end
     def new
       
         @cliente.vendas.build
