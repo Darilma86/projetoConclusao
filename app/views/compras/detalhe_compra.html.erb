@@ -1,0 +1,52 @@
+<h1> Compra </h1>
+<hr>
+<h5>PROTOCOLO: <strong><%= "#{@protocolo}".upcase%></strong> </h5>
+<h5>DATA DA COMPRA: <strong><%= "#{@data_compra}".upcase%></strong> </h5>
+<hr>
+<h5><strong>CLIENTE: </strong></h5>
+<div style="border-left: 2px solid #073763; padding: 15px; background: #e8f4ff;">
+<p>
+  <strong>Nome:</strong>
+  <%= @cliente.name %>
+</p>
+<p>
+  <strong>CPF:</strong>
+  <%= @cliente.cpf %>
+</p>
+<p>
+  <strong>Telefone:</strong>
+  <%= @cliente.celucar %>
+</p>
+
+</div>
+
+<hr>
+<h5><strong>PRODUTOS: </strong></h5>
+<table class="table table-hover my-0">
+  <thead>
+    <tr>
+      <th>Nome do Produto</th>
+      <th>Quantidade</th>
+      <th>Preço de Venda Unitário</th>
+      <th>Preço Total de Venda </th>
+      
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vendas.each do |venda| %>
+      <tr>
+        <td><%= venda.produto.nome %></td>
+        <td><%= venda.quantidade %></td>
+        <td><%= venda.valor_venda %></td>
+        <td><%= venda.quantidade * venda.valor_venda %></td>
+        
+      </tr>
+    <% end %>
+    <tr>
+        <td colspan="3"></td>
+        <td><strong> TOTAL DE VENDA:</strong> <%=@total_venda%> </td>
+    </tr>
+  </tbody>
+</table>

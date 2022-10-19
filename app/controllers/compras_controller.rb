@@ -3,9 +3,7 @@ class ComprasController < ApplicationController
     before_action :authenticate_user!
 
 
-      def
-        @compras = Compra.all
-        end
+
     def new
       
         @cliente.vendas.build
@@ -33,6 +31,24 @@ class ComprasController < ApplicationController
 
     end
 
+
+    
+    def detalhe_compra
+
+      puts "DETALHE VENDAAAAAAAAAAAAAAAAAAAAAAAA"
+      @vendas = Venda.where(compra_id: params[:id])
+      @cliente = @vendas.first.cliente
+      @total_venda = 0
+      @protocolo = @vendas.first.compra.protocolo
+      @data_compra = @vendas.first.compra.created_at.strftime("%d/%m/%Y")
+      
+      @vendas.each do |venda|
+        @total_venda += venda.valor_venda * venda.quantidade  
+      end
+      
+       
+
+    end
 
 
     private

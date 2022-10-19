@@ -4,8 +4,8 @@ class RelcomprasController < ApplicationController
   
     # GET /relcompras or /relcompras.json
     def index
-      puts "TESTEEEEEEEEEEEEEEE1"
-            @q = Compra.ransack(params[:q])
+      
+            @q = Compra.all.order(created_at: :desc).ransack(params[:q])
             @compras = @q.result.page(params[:page])
     end
   

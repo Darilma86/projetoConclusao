@@ -18,7 +18,7 @@
   <tbody>
     <% @compras.each do |compra| %>
       <tr>
-        <td> <%= link_to compra.protocolo, venda_path(:protocolo)%> </td>
+        <td> <%= link_to "#{compra.protocolo}".upcase, detalhe_compra_path(compra)%> </td>
   
        <td><%= compra.created_at.strftime("%d/%m/%Y") %></td>
         
