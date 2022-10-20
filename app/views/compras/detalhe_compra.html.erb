@@ -14,7 +14,7 @@
   <%= @cliente.cpf %>
 </p>
 <p>
-  <strong>Telefone:</strong>
+  <strong>Celular:</strong>
   <%= @cliente.celucar %>
 </p>
 
@@ -39,14 +39,14 @@
       <tr>
         <td><%= venda.produto.nome %></td>
         <td><%= venda.quantidade %></td>
-        <td><%= venda.valor_venda %></td>
-        <td><%= venda.quantidade * venda.valor_venda %></td>
+        <td><%= number_to_currency(venda.valor_venda) %></td>
+        <td><%= number_to_currency(venda.quantidade * venda.valor_venda) %></td>
         
       </tr>
     <% end %>
     <tr>
         <td colspan="3"></td>
-        <td><strong> TOTAL DE VENDA:</strong> <%=@total_venda%> </td>
+        <td><strong> TOTAL DE VENDA:</strong> <%=number_to_currency(@total_venda) %> </td>
     </tr>
   </tbody>
 </table>

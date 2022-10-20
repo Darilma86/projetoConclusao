@@ -23,23 +23,23 @@
 
   <div class="field">
     <%= f.label(:tipo, 'TIPO') %>
-    <%= f.select :tipo, options_for_select([ "Sapato Social", "Tênis", "Sapatênis", "Sandália Salto Festa", "Rasteirinha Festa", "Rasteirinha Casual", "Chinello" ],{include_banck: true}), {},{ :class => 'form-control' }%>
+    <%= f.text_field:tipo, :class => 'form-control' %>
    
   </div>
 
   <div class="field">
-    <%= f.label(:numero, 'NÚMERO') %>
-    <%= f.text_field :numero, :class=>"form-control", :type=>"int" %>
+    <%= f.label(:tamanho, 'TAMANHO') %>
+    <%= f.text_field :tamanho, :class=>"form-control", :type=>"int" %>
   </div>
 
   <div class="field">
     <%= f.label(:preco_compra, 'PREÇO COMPRA') %>
-    <%= f.text_field :preco_compra, :class=>"form-control" ,:id=>"precoC" %>
+    <%= f.text_field :preco_compra, :class=>"form-control", :onkeyup=>"k(this);" %>
   </div>
 
   <div class="field">
     <%= f.label(:preco_venda, 'PREÇO VENDA') %>
-    <%= f.text_field :preco_venda, :class=>"form-control", :id => "precoV" %> 
+    <%= f.text_field :preco_venda, :class=>"form-control", :onkeyup=>"k(this);" %> 
   </div>
   
   <div class="field">
@@ -57,3 +57,12 @@
 <% end %>
 
 
+<script type="text/javascript">
+function k(i) {
+    var v = i.value.replace(/\D/g,'');
+    v = (v/100).toFixed(2) + '';
+    v = v.replace(".", ",");
+    v = v.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    i.value = v;
+}
+</script>

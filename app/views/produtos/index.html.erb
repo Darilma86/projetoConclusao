@@ -39,7 +39,7 @@
       <tr>
         <td><%= produto.nome %></td>
         <td><%= produto.quantidade %></td>
-        <td><%= produto.preco_venda %>
+        <td><%= number_to_currency(produto.preco_venda) %>
         </td><td><%= produto.descricao %></td>
         <td><%= link_to '<i class="align-middle" data-feather="eye"></i>'.html_safe, produto %></td>
         <td><%= link_to '<i class="align-middle" data-feather="edit"></i>'.html_safe, edit_produto_path(produto) %></td>

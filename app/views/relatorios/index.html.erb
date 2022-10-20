@@ -38,7 +38,7 @@
         <td><%= venda.cliente.name %></td> 
         <td><%= venda.produto.nome %></td>
         <td><%= venda.quantidade %></td>
-        <td><%= venda.valor_venda %></td>
+        <td><%= number_to_currency(venda.valor_venda) %></td>
         <td><%= venda.created_at.strftime("%d/%m/%Y") %></td>
         
 

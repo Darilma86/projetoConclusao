@@ -16,18 +16,18 @@
 </p>
 
 <p>
-  <strong>Número:</strong>
-  <%= @produto.numero %>
+  <strong>Tamanho:</strong>
+  <%= @produto.tamanho %>
 </p>
 
 <p>
   <strong>Preço compra:</strong>
-  <%= @produto.preco_compra %>
+  <%= number_to_currency(@produto.preco_compra) %>
 </p>
 
 <p>
   <strong>Preço Venda:</strong>
-  <%= @produto.preco_venda %>
+  <%= number_to_currency(@produto.preco_venda) %>
 </p>
 
 <p>

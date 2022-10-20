@@ -50,7 +50,7 @@ gem 'devise-i18n'
 gem 'brazilian-rails'
 
 gem 'coffee-script-source', '1.8.0'
-gem 'i18n_alchemy'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
