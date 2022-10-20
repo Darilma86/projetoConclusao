@@ -48,14 +48,14 @@
                   
           <div class="col-6" style="margin-right: 25px; float:left;" >
             
-              <%= ff.label :produto %>
+               <%= ff.label(:produto,'PRODUTO') %>
               <%= ff.collection_select(:produto_id, Produto.all, :id, :nome, {include_blank: true}, class: 'form-control') %>
             
           </div>
           
           <div class="col-2" style="margin-right: 25px; float:left;">
             
-              <%= ff.label :quantidade %>
+               <%= ff.label(:quantidade, 'QUANTIDADE') %>
               <%= ff.text_field :quantidade, :class=>"form-control" %>
               
             
@@ -63,7 +63,7 @@
           
           <div class="col-2" style="margin-right: 25px; float:left;">
             
-              <%= ff.label :valor_venda %>
+                <%= ff.label(:valor_venda, 'PREÇO SUGERIDO') %>
               <%= ff.text_field :valor_venda, :class=>"form-control" %>
               
             

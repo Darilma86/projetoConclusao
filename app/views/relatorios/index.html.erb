@@ -5,10 +5,10 @@
 <br>
 <div style="border-left: 2px solid #073763; padding: 15px; background: #e8f4ff;">
 <%= search_form_for @q do |f| %>
-    <%= f.label :Data_Inicial %>
+    <%= f.label(:Data_Inicial, 'DATA INICIAL') %>
     <%= f.text_field :created_at_cont , class: 'form-control', :type=>"date"%>
    
-    <%= f.label :Data_Final %>
+    <%= f.label(:Data_Final, 'DATA FINAL') %>
      <%= f.text_field :created_at_cont, class: 'form-control', :type=>"date" %>
       <br>
   <%= f.submit "Buscar", class: 'btn btn-sm btn-primary'%> 
@@ -21,12 +21,12 @@
 <table class="table table-hover my-0">
   <thead>
     <tr>
-      <th>Cliente</th>
+      <th>CLIENTE</th>
       
-      <th>Produto</th>
-      <th>Quantidade</th>
-      <th>Valor</th>
-      <th>Data da Compra</th>
+      <th>PRODUTO</th>
+      <th>QUANTIDADE</th>
+      <th>VALOR</th>
+      <th>DATA DA COMPRA</th>
       
     </tr>
   </thead>

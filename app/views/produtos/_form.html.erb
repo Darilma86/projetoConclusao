@@ -12,37 +12,38 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nome %>
+    <%= f.label(:name, 'NOME') %>
     <%= f.text_field :nome, :class=>"form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :quantidade %>
-    <%= f.text_field :quantidade, :class=>"form-control" %>
+    <%= f.label(:quantidade, 'QUANTIDADE') %>
+    <%= f.text_field :quantidade, :class=>"form-control", :type=>"int" %>
   </div>
 
   <div class="field">
-    <%= f.label :tipo %>
-    <%= f.text_field :tipo, :class=>"form-control" %>
+    <%= f.label(:tipo, 'TIPO') %>
+    <%= f.select :tipo, options_for_select([ "Sapato Social", "Tênis", "Sapatênis", "Sandália Salto Festa", "Rasteirinha Festa", "Rasteirinha Casual", "Chinello" ],{include_banck: true}), {},{ :class => 'form-control' }%>
+   
   </div>
 
   <div class="field">
-    <%= f.label :numero %>
-    <%= f.text_field :numero, :class=>"form-control" %>
+    <%= f.label(:numero, 'NÚMERO') %>
+    <%= f.text_field :numero, :class=>"form-control", :type=>"int" %>
   </div>
 
   <div class="field">
-    <%= f.label :preco_compra %>
+    <%= f.label(:preco_compra, 'PREÇO COMPRA') %>
     <%= f.text_field :preco_compra, :class=>"form-control" ,:id=>"precoC" %>
   </div>
 
   <div class="field">
-    <%= f.label :preco_venda %>
+    <%= f.label(:preco_venda, 'PREÇO VENDA') %>
     <%= f.text_field :preco_venda, :class=>"form-control", :id => "precoV" %> 
   </div>
   
   <div class="field">
-    <%= f.label :descricao %>
+    <%= f.label(:descricao, 'DESCRIÇÃO') %>
     <%= f.text_area :descricao, :class=>"form-control" %>
   </div>
   <br>

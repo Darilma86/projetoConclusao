@@ -7,10 +7,11 @@
 <br>
 <div style="border-left: 2px solid #073763; padding: 15px; background: #e8f4ff;">
 <%= search_form_for @q do |f| %>
-    <%= f.label :Nome %>
+   
+    <%= f.label(:name, 'NOME') %>
     <%= f.text_field :name_cont , class: 'form-control'%>
    
-    <%= f.label :cpf %>
+    <%= f.label(:cpf, 'CPF') %>
      <%= f.text_field :cpf_eq, class: 'form-control' %>
       <br>
   <%= f.submit "Buscar", class: 'btn btn-sm btn-primary'%> 
@@ -23,15 +24,10 @@
 <table class="table table-hover my-0">
   <thead>
     <tr>
-      <th>Nome</th>
-      <%# <th>Endereço</th> %>
+      <th>NOME</th>
       <th>RG</th>
       <th>CPF</th>
-      <th>Celular</th>
-      <%# <th>Sexo</th> %>
-      <%# <th>Data Nasciemnto</th> %>
-      <%# <th>Email</th> %>
-      <%# <th>Cidade</th> %>
+      <th>CELULAR</th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -50,7 +46,7 @@
         <td><%= link_to '<i class="align-middle" data-feather="shopping-cart"></i>'.html_safe, new_cliente_compra_path(cliente) %></td>  
         <td><%= link_to '<i class="align-middle" data-feather="eye"></i>'.html_safe, cliente %></td>
         <td><%= link_to '<i class="align-middle" data-feather="edit"></i>'.html_safe, edit_cliente_path(cliente) %></td>
-        <td><%= link_to '<i class="align-middle" data-feather="trash"></i>'.html_safe, cliente, method: :delete, data: { confirm: 'Deseja Deletar?' } %></td>
+        <td><%= link_to '<i class="align-middle" data-feather="trash"></i>'.html_safe, cliente, method: :delete, data: { confirm: 'DESEJA REALMENTE DELETAR ESSE CLIENTE?' } %></td>
       </tr>
     <% end %>
   </tbody>
