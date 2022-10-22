@@ -31,7 +31,7 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Visitors</h5>
+														<h5 class="card-title">Total de Clientes</h5>
 													</div>
 
 													<div class="col-auto">
@@ -40,11 +40,8 @@
 														</div>
 													</div>
 												</div>
-												<h1 class="mt-1 mb-3">14.212</h1>
-												<div class="mb-0">
-													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 5.25% </span>
-													<span class="text-muted">Since last week</span>
-												</div>
+												<h1 class="mt-1 mb-3"><%= @total_clientes %></h1>
+												
 											</div>
 										</div>
 									</div>
@@ -62,18 +59,15 @@
 														</div>
 													</div>
 												</div>
-												<h1 class="mt-1 mb-3"> 222</h1>
-												<div class="mb-0">
-													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
-													<span class="text-muted">Since last week</span>
-												</div>
+												<h1 class="mt-1 mb-3"> R$ <%= @total_vendido %> </h1>
+												
 											</div>
 										</div>
 										<div class="card">
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Orders</h5>
+														<h5 class="card-title">total de Produtos</h5>
 													</div>
 
 													<div class="col-auto">
@@ -82,11 +76,8 @@
 														</div>
 													</div>
 												</div>
-												<h1 class="mt-1 mb-3">64</h1>
-												<div class="mb-0">
-													<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.25% </span>
-													<span class="text-muted">Since last week</span>
-												</div>
+												<h1 class="mt-1 mb-3"><%= @total_produtos %></h1>
+												
 											</div>
 										</div>
 									</div>
