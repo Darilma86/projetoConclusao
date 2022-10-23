@@ -1,3 +1,10 @@
+<style type="text/css">
+    @media print{
+      .no-print{
+      display: none;
+      }
+    }
+</style>
 <h1> Compra </h1>
 <hr>
 <h5>PROTOCOLO: <strong><%= "#{@protocolo}".upcase%></strong> </h5>
@@ -50,3 +57,5 @@
     </tr>
   </tbody>
 </table>
+<br>
+<button onclick="window.print()", class="btn btn-primary no-print", style= "float:right; " > Imprimir </button>

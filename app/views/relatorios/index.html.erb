@@ -1,9 +1,16 @@
+<style type="text/css">
+    @media print{
+      .no-print{
+      display: none;
+      }
+    }
+</style>
 <h1> <i class="align-middle" data-feather="pie-chart"></i> <span class="align-middle" > Relatórios </h1>
 
 <hr>
 
 <br>
-<div style="border-left: 2px solid #073763; padding: 15px; background: #e8f4ff;">
+<div style="border-left: 2px solid #073763; padding: 15px; background: #e8f4ff;", class="no-print">
 <%= search_form_for @q do |f| %>
     <%= f.label(:Data_Inicial, 'DATA INICIAL') %>
     <%= f.text_field :created_at_cont , class: 'form-control', :type=>"date"%>
@@ -38,7 +45,7 @@
         <td><%= venda.cliente.name %></td> 
         <td><%= venda.produto.nome %></td>
         <td><%= venda.quantidade %></td>
-        <td><%= number_to_currency(venda.valor_venda) %></td>
+        <td><%= number_to_currency(venda.valor_venda*venda.quantidade) %></td>
         <td><%= venda.created_at.strftime("%d/%m/%Y") %></td>
         
 
@@ -46,8 +53,10 @@
     <% end %>
   </tbody>
 </table>
+<br>
+<button onclick="window.print()", class="btn btn-primary no-print", style= "float:right; " > Imprimir </button>
 
 <br>
-<div class="digg_pagination"> 
+<div class="digg_pagination no-print"> 
      <%= will_paginate @vendas, :container => false%> 
 </div>
