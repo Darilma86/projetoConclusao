@@ -34,7 +34,7 @@
     <tr>
       <th>Nome do Produto</th>
       <th>Quantidade</th>
-      <th>Preço de Venda Unitário</th>
+      <th class="no-print">Preço de Venda Unitário</th>
       <th>Preço Total de Venda </th>
       
       
@@ -46,7 +46,7 @@
       <tr>
         <td><%= venda.produto.nome %></td>
         <td><%= venda.quantidade %></td>
-        <td><%= number_to_currency(venda.valor_venda) %></td>
+        <td class="no-print"><%= number_to_currency(venda.valor_venda) %></td>
         <td><%= number_to_currency(venda.quantidade * venda.valor_venda) %></td>
         
       </tr>
