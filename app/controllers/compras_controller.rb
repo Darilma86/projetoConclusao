@@ -3,6 +3,10 @@ class ComprasController < ApplicationController
     before_action :authenticate_user!
 
 
+    def index
+      @q = Compra.all.order(created_at: :desc).ransack(params[:q])
+      @compras = @q.result.page(params[:page])
+    end
 
     def new
       

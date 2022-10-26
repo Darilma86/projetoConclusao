@@ -49,7 +49,7 @@
                   
           <div class="col-6" style="margin-right: 25px; float:left;" >
                <%= ff.label(:produto,'PRODUTO') %>
-              <%= ff.collection_select(:produto_id, Produto.all, :id, :nome, {include_blank: true}, class: 'form-control') %>
+              <%= ff.collection_select(:produto_id, Produto.all, :id, :nome_precodevenda, {include_blank: true}, class: 'form-control') %>
             
           </div>
           

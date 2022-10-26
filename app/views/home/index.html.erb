@@ -50,7 +50,7 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Total de Venda</h5>
+														<h5 class="card-title">Total de Venda Diário</h5>
 													</div>
 
 													<div class="col-auto">
@@ -89,12 +89,31 @@
 							<div class="card flex-fill w-100">
 								<div class="card-header">
 
-									<h5 class="card-title mb-0">Recent Movement</h5>
+									<h5 class="card-title mb-0">Últimas Movimentações de Compra</h5>
 								</div>
 								<div class="card-body py-3">
-									<div class="chart chart-sm"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-										<canvas id="chartjs-dashboard-line" style="display: block; width: 796px; height: 252px;" width="796" height="252" class="chartjs-render-monitor"></canvas>
-									</div>
+										<table class="table table-hover my-0">
+										<thead>
+											<tr>
+											<th>Cliente</th>
+											<th>Protocolo</th>
+											<th>Data da Compra</th>
+											</tr>
+										</thead>
+
+										<tbody>
+											<% @compras.each do |compra| %>
+											<tr>
+											
+												<td><%= compra.vendas.first.cliente.name %></td> 
+												<td><%= link_to "#{compra.protocolo}".upcase, detalhe_compra_path(compra)%></td>
+												<td><%= compra.created_at.strftime("%d/%m/%Y - %H:%m") %></td>
+												
+											</tr>
+											<% end %>
+										</tbody>
+										</table>
+
 								</div>
 							</div>
 						</div>
@@ -108,6 +127,9 @@
 
 									<h5 class="card-title mb-0">Últimas Vendas</h5>
 								</div>
+
+
+								<div id="piechart" style="width: 500px; height: 400px;"></div>
 										<table class="table table-hover my-0">
 										<thead>
 											<tr>
@@ -157,3 +179,31 @@
 
 				</div>
 			</main>
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Sapato',     <%=  @sapato  %>],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    1]
+        ]);
+
+        var options = {
+          title: 'Produtos Mais Vendidos'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>

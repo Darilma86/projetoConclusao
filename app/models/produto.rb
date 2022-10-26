@@ -3,6 +3,13 @@ class Produto < ApplicationRecord
     has_many :vendas, inverse_of: :produto, dependent: :destroy
     has_many :clientes, through: :vendas
 
-    validates :nome, :quantidade, :tipo, :numero, :preco_venda, :preco_compra, :descricao, presence: true
+    validates :nome, :quantidade, :tipo, :tamanho, :preco_venda, :preco_compra, :descricao, presence: true
+
+
+
+    def nome_precodevenda
+        "#{nome.upcase + " ----- Preço Sugerido: " + preco_venda.to_s }"
+    end
+    
 
 end
