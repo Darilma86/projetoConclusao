@@ -1,0 +1,44 @@
+<%= form_for(devolucao) do |f| %>
+  <% if devolucao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(devolucao.errors.count, "error") %> prohibited this devolucao from being saved:</h2>
+
+      <ul>
+      <% devolucao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+      
+
+
+  <div class="field">
+    <%= f.label :cliente , 'CLIENTE'%>
+   
+    <%= f.collection_select(:cliente_id, Cliente.all, :id, :name, {include_blank: true}, class: 'form-control') %> 
+  </div>
+ 
+
+
+  <div class="field">
+    <%= f.label :produto, 'PRODUTO' %>
+     
+     <%= f.collection_select(:produto_id, Produto.all, :id, :nome_precodevenda, {include_blank: true}, class: 'form-control') %> 
+  </div>
+
+      
+
+
+  <div class="field">
+    <%= f.label :justificativa, 'JUSTICATIVA' %>
+    <%= f.text_field :justificativa, :class=>"form-control" %>
+  </div>
+
+
+  <div class="actions">
+     <%= link_to 'Voltar', devolucaos_path, :class=>"btn btn-dark" %> 
+    <%= f.submit :class=>"btn btn-primary", :value=>"Salvar Devolução" %>
+  </div>
+<% end %>

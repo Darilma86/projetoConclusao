@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Devolucões</h1>
+<hr>
+<%= link_to 'Nova Devolução', new_devolucao_path, :style=> "float:right;", :class=>"btn btn-sm btn-primary mt-1" %>
+
+<table class="table table-hover my-0">
+  <thead>
+    <tr>
+      <th>CLIENTE</th>
+      <th>PRODUTO</th>
+      <th>JUSTIFICATIVA</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @devolucaos.each do |devolucao| %>
+      <tr>
+
+        <td><%= devolucao.cliente_id %></td>
+
+        <td><%= devolucao.produto_id%></td>
+        <td><%= devolucao.justificativa %></td>
+       
+         <td><%= link_to '<i class="align-middle" data-feather="eye"></i>'.html_safe,  devolucao%></td>
+        <td><%= link_to '<i class="align-middle" data-feather="edit"></i>'.html_safe, edit_devolucao_path(devolucao) %></td>
+        <td><%= link_to '<i class="align-middle" data-feather="trash"></i>'.html_safe, devolucao, method: :delete, data: { confirm: 'DESEJA REALMENTE DELETAR ESSA DEVOLUÇÃO?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<div class="digg_pagination"> 
+     <%= will_paginate @devolucaos, :container => false%> 
+</div>

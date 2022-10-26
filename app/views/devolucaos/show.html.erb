@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @devolucao.cliente_id %>
+</p>
+
+<p>
+  <strong>Produto:</strong>
+  <%= @devolucao.produto_id %>
+</p>
+
+<p>
+  <strong>Justificativa:</strong>
+  <%= @devolucao.justificativa %>
+</p>
+
+
+<%= link_to 'Voltar', devolucaos_path, :class=>"btn btn-dark" %> 
+<%= link_to 'Editar', edit_devolucao_path(@devolucao), :class=>"btn btn-primary" %> 

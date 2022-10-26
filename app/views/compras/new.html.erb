@@ -64,7 +64,7 @@
           <div class="col-2" style="margin-right: 25px; float:left;">
             
               <%= ff.label(:valor_venda, 'VALOR VENDA') %>
-              <%= ff.text_field :valor_venda, :class=>"form-control" %>
+              <%= ff.text_field :valor_venda, :class=>"form-control", :onkeyup=>"k(this);" %>
               
             
           </div>
@@ -79,6 +79,16 @@
           
         <% end %>
       </div>
+
+      <script type="text/javascript">
+function k(i) {
+    var v = i.value.replace(/\D/g,'');
+    v = (v/100).toFixed(2) + '';
+    v = v.replace(".", ",");
+    v = v.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    i.value = v;
+}
+</script>
 
   
 

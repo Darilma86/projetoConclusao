@@ -2,11 +2,6 @@
 AMANHÃ
 ================================================================================
 
-
-
-
-
-
 COMPRAS INDEX 
 
 - FILTRO DE BUSCAR POR PROTOCOLO E POR DATA

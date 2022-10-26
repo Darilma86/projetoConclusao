@@ -149,7 +149,7 @@
 												<td><%= venda.cliente.name %></td> 
 												<td><%= venda.produto.nome %></td>
 												<td><%= venda.quantidade %></td>
-												<td><%= venda.valor_venda %></td>
+												<td><%= number_to_currency(venda.valor_venda) %></td>
 												<td><%= venda.created_at.strftime("%d/%m/%Y - %H:%m") %></td>
 												
 
@@ -207,3 +207,13 @@
         chart.draw(data, options);
       }
     </script>
+
+	<script type="text/javascript">
+function k(i) {
+    var v = i.value.replace(/\D/g,'');
+    v = (v/100).toFixed(2) + '';
+    v = v.replace(".", ",");
+    v = v.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    i.value = v;
+}
+</script>
