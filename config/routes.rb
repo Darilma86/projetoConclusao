@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+ 
   devise_for :users
 
   resources :clientes do
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :relatorios
 
+  resources :devolucaos
   
   get '/compras/:id', to: 'compras#detalhe_compra', as: 'detalhe_compra'
   get '/compras', to: 'compras#index', as: 'compras'

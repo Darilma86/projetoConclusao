@@ -5,6 +5,7 @@ class Cliente < ApplicationRecord
 
     accepts_nested_attributes_for :vendas, :produtos, allow_destroy: true
 
+
     validates :name, :celucar, :email, :cidade, presence: { message: 'deve ser preenchido'}
     validates :rg, presence: { message: 'deve ser preenchido'},
     length: {minimum: 10, maximum: 10, message: 'Deve conter 10 dígitos'}
