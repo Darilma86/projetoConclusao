@@ -50,7 +50,28 @@
   <strong>Cidade:</strong>
   <%= @cliente.cidade %>
 </p>
+<hr>
+  <h5><strong>Compras Realizadas </strong></h5>
+    <table class="table table-hover my-0">
+    <thead>
+    <tr>
+     <th>PROTOCOLO DA COMPRA</th> 
+     <th>DATA DA COMPRA</th>   
+    </tr>
+  </thead>
 
+  <tbody>
+    <%# <% @compras.each do |compra| %>
+      <tr>
+        <td> <%#= link_to "#{venda.compra.protocolo}".upcase, detalhe_compra_path(compra)%> </td>
+        <td><%#= compra.created_at.strftime("%d/%m/%Y") %></td> 
+      </tr>
+    <%# <% end %>  
+
+
+  </tbody>
+  </table>
+<br>
 <%= link_to 'Voltar', clientes_path, :class=>"btn btn-dark"%> 
 <%= link_to 'Editar', edit_cliente_path(@cliente), :class=>"btn btn-primary" %> 
 

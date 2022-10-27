@@ -28,8 +28,17 @@
      <%= f.collection_select(:produto_id, Produto.all, :id, :nome_precodevenda, {include_blank: true}, class: 'form-control') %> 
   </div>
 
-      
+      <div class="field">
+    <%= f.label :quantidade, 'QUANTIDADE' %>
+      <%= f.text_field :quantidade, :class=>"form-control" %>
+  </div>
 
+
+ <div class="field">
+    <%= f.label :status, 'STATUS' %>
+    <%= f.select :status, options_for_select([ "Com Defeito", "Sem Deito", "Reparo" ], "Sem Deito"),{}, { :class => 'form-control' }%>
+    <%# <%= f.text_field :Status, :class=>"form-control" %>
+  </div>
 
   <div class="field">
     <%= f.label :justificativa, 'JUSTICATIVA' %>

@@ -2,12 +2,23 @@
 
 <p>
   <strong>Cliente:</strong>
-  <%= @devolucao.cliente_id %>
+  <%= @devolucao.cliente.name%>
 </p>
 
 <p>
   <strong>Produto:</strong>
-  <%= @devolucao.produto_id %>
+  <%= @devolucao.produto.nome %>
+</p>
+
+<p>
+  <strong>Quantidade:</strong>
+  <%= @devolucao.quantidade %>
+</p>
+
+
+<p>
+  <strong>Status:</strong>
+  <%= @devolucao.status %>
 </p>
 
 <p>

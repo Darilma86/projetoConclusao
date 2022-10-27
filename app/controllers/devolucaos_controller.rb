@@ -28,10 +28,17 @@ class DevolucaosController < ApplicationController
   # POST /devolucaos or /devolucaos.json
   def create
     @devolucao = Devolucao.new(devolucao_params)
-
+    
     respond_to do |format|
       if @devolucao.save
-        format.html { redirect_to devolucao_url(@devolucao), notice: "Devolucao was successfully created." }
+        
+        
+          @produto = Produto.find(@devolucao.produto_id)
+          @produto.quantidade += @devolucao.quantidade
+          @produto.save
+        
+
+        format.html { redirect_to devolucao_url(@devolucao), notice: "Devolucao Salva com Sucesso." }
         format.json { render :show, status: :created, location: @devolucao }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +51,7 @@ class DevolucaosController < ApplicationController
   def update
     respond_to do |format|
       if @devolucao.update(devolucao_params)
-        format.html { redirect_to devolucao_url(@devolucao), notice: "Devolucao was successfully updated." }
+        format.html { redirect_to devolucao_url(@devolucao), notice: "Devolucao Atualizado com Sucesso." }
         format.json { render :show, status: :ok, location: @devolucao }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -58,7 +65,7 @@ class DevolucaosController < ApplicationController
     @devolucao.destroy
 
     respond_to do |format|
-      format.html { redirect_to devolucaos_url, notice: "Devolucao was successfully destroyed." }
+      format.html { redirect_to devolucaos_url, notice: "Devolucao Deletado com Sucesso." }
       format.json { head :no_content }
     end
   end
@@ -71,6 +78,6 @@ class DevolucaosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def devolucao_params
-      params.require(:devolucao).permit(:cliente_id, :produto_id, :justificativa)
+      params.require(:devolucao).permit(:cliente_id, :produto_id, :quantidade, :status, :justificativa)
     end
 end

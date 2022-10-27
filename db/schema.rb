@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221026150536) do
+ActiveRecord::Schema.define(version: 20221027005335) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.text     "endereco",        limit: 65535
@@ -34,10 +34,12 @@ ActiveRecord::Schema.define(version: 20221026150536) do
 
   create_table "devolucaos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "justificativa"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "cliente_id"
     t.integer  "produto_id"
+    t.integer  "quantidade"
+    t.integer  "status",        default: 0
   end
 
   create_table "produtos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
