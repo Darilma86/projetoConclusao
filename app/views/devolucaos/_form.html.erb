@@ -36,8 +36,8 @@
 
  <div class="field">
     <%= f.label :status, 'STATUS' %>
-    <%= f.select :status, options_for_select([ "Com Defeito", "Sem Deito", "Reparo" ], "Sem Deito"),{}, { :class => 'form-control' }%>
-    <%# <%= f.text_field :Status, :class=>"form-control" %>
+    <%= f.select :status, options_for_select([ "broked", "flawless" ]), {include_blank: true}, { :class => 'form-control' }%>
+    <%#= f.text_field :status, :class=>"form-control" %>
   </div>
 
   <div class="field">
@@ -45,7 +45,7 @@
     <%= f.text_field :justificativa, :class=>"form-control" %>
   </div>
 
-
+<br>
   <div class="actions">
      <%= link_to 'Voltar', devolucaos_path, :class=>"btn btn-dark" %> 
     <%= f.submit :class=>"btn btn-primary", :value=>"Salvar Devolução" %>

@@ -21,29 +21,33 @@ class DevolucaosController < ApplicationController
     @id = params[:produto_id]
   end
 
-  # GET /devolucaos/1/edit
+  # GET /devolucaos/1/edit 
   def edit
   end
 
   # POST /devolucaos or /devolucaos.json
-  def create
-    @devolucao = Devolucao.new(devolucao_params)
-    
+  def create 
+   
+     @devolucao = Devolucao.new(devolucao_params)
+        
+        
     respond_to do |format|
+
       if @devolucao.save
-        
-        
+    
+        if @devolucao.status == "flawless"
           @produto = Produto.find(@devolucao.produto_id)
           @produto.quantidade += @devolucao.quantidade
           @produto.save
-        
+        end
 
         format.html { redirect_to devolucao_url(@devolucao), notice: "Devolucao Salva com Sucesso." }
         format.json { render :show, status: :created, location: @devolucao }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @devolucao.errors, status: :unprocessable_entity }
-      end
+      
+    end
     end
   end
 
