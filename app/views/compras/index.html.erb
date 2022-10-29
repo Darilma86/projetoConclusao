@@ -3,8 +3,21 @@
 <hr>
 
 <br>
-
-<br> 
+<div style="border-left: 2px solid #073763; padding: 15px; background: #e8f4ff;">
+<%= search_form_for @q do |f| %>
+ <div class="form-group">
+    <%= f.label(:protocolo, 'PROTOCOLO') %>
+    <%= f.text_field :protocolo_cont, class: 'form-control' %>
+    <br>
+  
+    </div>
+    <%= f.submit "Buscar", class: 'btn btn-sm btn-primary'%> 
+    <%= link_to "Limpar busca", request.path, class: "btn btn-sm btn-dark" %>
+    
+     
+<% end %>
+</div>
+<br>
 <br>
 <table class="table table-hover my-0">
   <thead>
