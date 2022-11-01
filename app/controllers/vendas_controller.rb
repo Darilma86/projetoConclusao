@@ -1,11 +1,13 @@
 class VendasController < ApplicationController
-    before_action :set_cliente, only: %i[ index new ]
+    # before_action :set_cliente, only: %i[ index new ]
     before_action :authenticate_user!
 
 
     def index
         # puts "TESTEEEEEEEEEEEEEEE1"
         # @cliente.vendas.build
+        @q = Venda.ransack(params[:q])
+        @vendas = @q.result.page(params[:page])
     end
 
 

@@ -5,8 +5,11 @@ class RelatoriosController < ApplicationController
 
 
     def index
-      @q = Venda.ransack(params[:q])
-      @vendas = @q.result.page(params[:page])
+          @q = Venda.ransack(params[:q])
+          @vendas = @q.result.page(params[:page])
+
+      
+       
     end
 
 

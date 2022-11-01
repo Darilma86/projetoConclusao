@@ -5,4 +5,5 @@ class Venda < ApplicationRecord
     belongs_to :compra
     belongs_to :devolucao
 
+
 end
