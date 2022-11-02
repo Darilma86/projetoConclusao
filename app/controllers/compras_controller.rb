@@ -6,6 +6,19 @@ class ComprasController < ApplicationController
     def index
       @q = Compra.all.order(created_at: :desc).ransack(params[:q])
       @compras = @q.result.page(params[:page])
+
+      if params[:data_inicial].present? && params[:data_final].present?
+        data_inicial = DateTime.parse(params[:data_inicial]).beginning_of_day
+        data_final = DateTime.parse(params[:data_final]).end_of_day
+        @compras = @compras .where("compras.created_at >='#{data_inicial}'")  
+        @compras  = @compras .where("compras.created_at <= '#{data_final}'")  
+      elsif params[:data_inicial].present? && params[:data_final].blank?
+        data_inicial = DateTime.parse(params[:data_inicial]).beginning_of_day
+        @compras = @compras .where("compras.created_at >= '#{data_inicial}'")
+      elsif params[:data_inicial].blank? && params[:data_final].present?
+        data_final = DateTime.parse(params[:data_final]).end_of_day
+        @compras  = @compras .where("compras.created_at <= '#{data_final}'")
+    end
     end
 
     def new
@@ -25,8 +38,11 @@ class ComprasController < ApplicationController
       @compra = Compra.new(compra_params)
       @compra.protocolo = protocolo
 
+
       respond_to do |format|
         if @compra.save
+   
+
           format.html { redirect_to clientes_path, notice: "Venda Efetuada com Sucesso!" }
         else
           format.html { render :new, status: :unprocessable_entity }

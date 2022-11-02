@@ -7,7 +7,7 @@ class RelatoriosController < ApplicationController
     def index
         # puts "TESTEEEEEEEEEEEEEEE1"
         # @cliente.vendas.build
-        @q = Venda.ransack(params[:q])
+        @q = Venda.order(created_at: :desc).ransack(params[:q])
         @vendas = @q.result.page(params[:page])
         # if params[:data_inicial].present? && params[:data_final].present?
         #   data_inicial = DateTime.parse(params[:data_inicial]).beginning_of_day

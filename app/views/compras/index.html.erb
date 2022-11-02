@@ -7,10 +7,18 @@
 <%= search_form_for @q do |f| %>
  <div class="form-group">
     <%= f.label(:protocolo, 'PROTOCOLO') %>
-    <%= f.text_field :protocolo_cont, class: 'form-control' %>
-    <br>
-  
+    <%= f.text_field :protocolo_cont, class: 'form-control' %> 
+  </div>
+
+    <div class="form-group">
+     <%= f.label(:Data_Inicial, 'DATA INICIAL') %>
+    <%= f.text_field :created_at, :type=>"date", class: 'form-control', :name=>"data_inicial", :value=>" params[:data_inicial]" %>
+
+    <%= f.label(:Data_Final, 'DATA FINAL') %>
+     <%= f.text_field :created_at,  :type=>"date", class: 'form-control', :name=>"data_final", :value=>" params[:data_final]"  %>
     </div>
+  <br>
+ 
     <%= f.submit "Buscar", class: 'btn btn-sm btn-primary'%> 
     <%= link_to "Limpar busca", request.path, class: "btn btn-sm btn-dark" %>
     
