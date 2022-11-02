@@ -17,8 +17,9 @@ class ClientesController < ApplicationController
 
   # GET /clientes/1 or /clientes/1.json
   def show
-   # @compras = Venda.where(compra_id: params[:id])
+   # @compras = Venda.where(compra_id: params[:id]) s
     @vendas = Venda.where(cliente_id: params[:id])
+    @vendas = @vendas.select(:compra_id).distinct
   end
 
   # GET /clientes/new

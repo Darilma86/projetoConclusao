@@ -35,7 +35,7 @@ class DevolucaosController < ApplicationController
 
       if @devolucao.save
     
-        if @devolucao.status == "Sem_Defeito"
+        if @devolucao.status == "Sem Defeito"
           @produto = Produto.find(@devolucao.produto_id)
           @produto.quantidade += @devolucao.quantidade
           @produto.save

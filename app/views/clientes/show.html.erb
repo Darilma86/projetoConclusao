@@ -63,14 +63,12 @@
   <tbody>
      <% @vendas.each do |venda| %>
       <tr>
-        
-        <%# <td> <%#= "#{venda.compra.protocolo}".upcase, detalhe_compra_path(compra)</td> %>
-           <td><%= link_to  venda.compra.protocolo, detalhe_compra_path %></td> 
+           <td><%= link_to  "#{venda.compra.protocolo}".upcase, detalhe_compra_path(venda.compra)
+           
+           %></td> 
         <td><%= venda.compra.created_at.strftime("%d/%m/%Y") %></td> 
       </tr>
    <% end %>  
-
-
   </tbody>
   </table>
 <br>

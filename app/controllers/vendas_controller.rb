@@ -4,10 +4,23 @@ class VendasController < ApplicationController
 
 
     def index
-        # puts "TESTEEEEEEEEEEEEEEE1"
+        # ESTA FUNCIONANDO"
         # @cliente.vendas.build
         @q = Venda.ransack(params[:q])
         @vendas = @q.result.page(params[:page])
+        if params[:data_inicial].present? && params[:data_final].present?
+          data_inicial = DateTime.parse(params[:data_inicial]).beginning_of_day
+          data_final = DateTime.parse(params[:data_final]).end_of_day
+          @vendas = @vendas.where("created_at >='#{data_inicial}'")  
+          @vendas = @vendas.where("created_at <= '#{data_final}'")  
+        elsif params[:data_inicial].present? && params[:data_final].blank?
+          data_inicial = DateTime.parse(params[:data_inicial]).beginning_of_day
+          @vendas = @vendas.where("created_at >= '#{data_inicial}'")
+        elsif params[:data_inicial].blank? && params[:data_final].present?
+          data_final = DateTime.parse(params[:data_final]).end_of_day
+          @vendas = @vendas.where("created_at <= '#{data_final}'")
+      end
+
     end
 
 

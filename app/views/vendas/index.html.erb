@@ -1,112 +1,62 @@
-NÃO FUNCIONA
+<style type="text/css">
+    @media print{
+      .no-print{
+      display: none;
+      }
+    }
+</style>
+<h1> <i class="align-middle" data-feather="pie-chart"></i> <span class="align-middle" > Relatórios </h1>
 
-
-<p id="notice"><%= notice %></p>
-
-<div style="border-left: 2px solid #073763; padding: 15px; background: #e8f4ff;">
-<p>
-  <strong>Nome:</strong>
- 
-  <%= @cliente.name %>
-</p>
-
-<p>
-  <strong>CPF:</strong>
-  <%= @cliente.cpf %>
-</p>
-
-
-<p>
-  <strong>Celular:</strong>
-  <%= @cliente.celucar %>
-</p>
-
-
-<p>
-  <strong>Email:</strong>
-  <%= @cliente.email %>
-</p>
-
-
-</div>
 <hr>
-<br>
-<br>
-
-<%= form_for(@cliente) do |f| %>
-  
-
-
-
-
-
-    <fieldset>
-      <legend><%= Venda.human_attribute_name(:vendas) %> <%= f.add_nested_fields_link :vendas, '<i class="align-middle" data-feather="plus-square"></i>'.html_safe, style: "margin-top: 25px; color: #000;" %></legend>
-    </fieldset>
-
-	  
-      <div class="row">
-        <%= f.nested_fields_for :vendas do |ff| %>   
-          
-                  
-          <div class="col-6" style="margin-right: 25px; float:left;" >
-            
-               <%= ff.label(:produto,'PRODUTO') %>
-              <%= ff.collection_select(:produto_id, Produto.all, :id, :nome, {include_blank: true}, class: 'form-control') %>
-            
-          </div>
-          
-          <div class="col-2" style="margin-right: 25px; float:left;">
-            
-               <%= ff.label(:quantidade, 'QUANTIDADE') %>
-              <%= ff.text_field :quantidade, :class=>"form-control" %>
-              
-            
-          </div>
-          
-          <div class="col-2" style="margin-right: 25px; float:left;">
-            
-                <%= ff.label(:valor_venda, 'PREÇO SUGERIDO') %>
-              <%= ff.text_field :valor_venda, :class=>"form-control" %>
-              
-            
-          </div>
-
-                          
-          <div class="col-2">
-              <%= f.add_nested_fields_link :vendas, '+', style: "margin-top: 25px;" %>
-              <%= ff.remove_nested_fields_link '-', style: "margin-top: 25px;" %>    
-          </div>
-          
-        <% end %>
-      </div>
-
-  
-
-
-
-
-
-
 
 <br>
-<br>
-
-<br>
-
-
-  <div class="actions pull-right">
-    <%= link_to t('all'), new_cliente_venda_path(@cliente), class: 'btn btn-default' %>
-    <%= f.submit id: 'submit_rh', class: 'btn btn-primary', data: {disable_with: t('processing')} %>
-  </div>
- 
-
-
-
+<div style="border-left: 2px solid #073763; padding: 15px; background: #e8f4ff;", class="no-print">
+<%= search_form_for @q do |f| %>
+    <%= f.label(:Data_Inicial, 'DATA INICIAL') %>
+    <%= f.text_field :created_at_cont , class: 'form-control', :type=>"date", :name=>"data_inicial", :value=>"params[:data_inicial]" %>
+   
+    <%= f.label(:Data_Final, 'DATA FINAL') %>
+     <%= f.text_field :created_at_cont, class: 'form-control', :type=>"date", :name => "data_final",:value=>" params[:data_final]" %>
+      <br>
+  <%= f.submit "Buscar", class: 'btn btn-sm btn-primary'%> 
+  <%= link_to "Limpar busca", request.path, class: "btn btn-sm btn-dark" %>
 <% end %>
+</div>
 
+<br> 
+<br>
+<table class="table table-hover my-0">
+  <thead>
+    <tr>
+      <th>CLIENTE</th>
+      
+      <th>PRODUTO</th>
+      <th>QUANTIDADE</th>
+      <th>VALOR</th>
+      <th>DATA DA COMPRA</th>
+      
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @vendas.each do |venda| %>
+      <tr>
+       
+        <td><%= venda.cliente.name %></td> 
+        <td><%= venda.produto.nome %></td>
+        <td><%= venda.quantidade %></td>
+        <td><%= number_to_currency(venda.valor_venda*venda.quantidade) %></td>
+        <td><%= venda.created_at.strftime("%d/%m/%Y") %></td>
+        
 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<button onclick="window.print()", class="btn btn-primary no-print", style= "float:right; " > Imprimir </button>
 
-
-
+<br>
+<div class="digg_pagination no-print"> 
+     <%= will_paginate @vendas, :container => false%> 
+</div>
