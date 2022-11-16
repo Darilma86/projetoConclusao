@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     @total_vendas = Compra.all.count
     @total_clientes = Cliente.all.count
     @total_produtos = Produto.all.count
-   @total_vendido = 100
+   @total_vendido = Venda.total
 
     @compras = Compra.all.order(created_at: :desc).limit(5)
     @vendas = Venda.all.order(created_at: :desc).limit(5)

@@ -9,9 +9,9 @@
   <thead>
     <tr>
       <th>CLIENTE</th>
-      <th>PRODUTO</th>
+      <%# <th>PRODUTO</th>
       <th>QUANTIDADE</th>
-       <th>STATUS</th>
+       <th>STATUS</th> %>
       <th>JUSTIFICATIVA</th>
       <th colspan="3"></th>
     </tr>
@@ -21,9 +21,9 @@
     <% @devolucaos.each do |devolucao| %>
       <tr>
         <td><%= devolucao.cliente.name %></td>
-        <td><%= devolucao.produto.nome%></td>
-        <td><%= devolucao.quantidade%></td>
-        <td><%= devolucao.status %></td>
+        <%# <td><%= devolucao.produto.nome%</td>>
+        <td><%= devolucao.quantidade%</td>> %>
+        <%# <td><%= devolucao.status %</td>> %>
         <td><%= devolucao.justificativa %></td>
        
          <td><%= link_to '<i class="align-middle" data-feather="eye"></i>'.html_safe,  devolucao%></td>

@@ -41,7 +41,19 @@ class ComprasController < ApplicationController
 
       respond_to do |format|
         if @compra.save
-   
+          # venda = Venda.new
+          # venda.data = Time.zone.now
+              
+          # venda.cliente_id =params[:cliente_id]
+          # venda.produto_id =params[:produto_id]
+          # venda.quantidade = params[:quantidade]
+          # venda.valor_venda = params[:valor_venda]
+          # venda.compra = @compra
+          # venda.save
+    # @compra.vendas.produto.quantidade -= compra.vendas.quantidade
+
+          # produto = Produto.find(params[:produto_id])
+          # @produto.quantidade -=  params[:quantidade].to_i
 
           format.html { redirect_to clientes_path, notice: "Venda Efetuada com Sucesso!" }
         else

@@ -5,5 +5,8 @@ class Venda < ApplicationRecord
     belongs_to :compra
     belongs_to :devolucao
 
+    def self.total
+        self.sum(:valor_venda)
+      end
 
 end
