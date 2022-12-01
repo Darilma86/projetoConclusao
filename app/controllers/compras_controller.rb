@@ -37,28 +37,68 @@ class ComprasController < ApplicationController
 
       @compra = Compra.new(compra_params)
       @compra.protocolo = protocolo
-
+ 
 
       respond_to do |format|
-        if @compra.save
-          # venda = Venda.new
-          # venda.data = Time.zone.now
-              
-          # venda.cliente_id =params[:cliente_id]
-          # venda.produto_id =params[:produto_id]
-          # venda.quantidade = params[:quantidade]
-          # venda.valor_venda = params[:valor_venda]
-          # venda.compra = @compra
-          # venda.save
-    # @compra.vendas.produto.quantidade -= compra.vendas.quantidade
 
-          # produto = Produto.find(params[:produto_id])
-          # @produto.quantidade -=  params[:quantidade].to_i
+        
 
-          format.html { redirect_to clientes_path, notice: "Venda Efetuada com Sucesso!" }
-        else
-          format.html { render :new, status: :unprocessable_entity }
+        
+        @produto_validado = []
+        @produto_invalidado = []
+
+        @compra.vendas.each do |venda|
+          
+          @produto = Produto.find(venda.produto_id)
+          
+          if (@produto.quantidade >= venda.quantidade)   
+            @produto_validado << venda.produto_id
+          else
+            @produto_invalidado << venda.produto_id
+          end 
+        
         end
+
+        # puts "PRODUTO INVALIDADO #{@produto_invalidado.first}"
+        if (@produto_invalidado.blank?)
+
+
+          @compra.vendas.each do |venda|
+
+            @produto = Produto.find(venda.produto_id)
+            @produto.quantidade -= venda.quantidade 
+            @produto.save
+          end
+
+          if @compra.save
+            puts "FOI DE BOA"
+            format.html { redirect_to clientes_path, notice: "Venda Efetuada com Sucesso!" }
+          else
+            format.html { render :new, status: :unprocessable_entity }
+          end
+
+
+
+        else
+          # puts"não fo000000000000000000i"
+          produtos_recusados = ""
+          
+          @produto_invalidado.each do | produto_id |
+            @prod = Produto.find(produto_id)
+
+            produtos_recusados +=  " #{@prod.nome}, " 
+          end
+
+          format.html { redirect_to clientes_path, notice: "Não foi possível efeuar compra por falta de estoque do(s) produto(s) #{ produtos_recusados}!" }
+
+
+        end
+
+
+
+
+
+
       end      
 
     end
