@@ -11,6 +11,15 @@ class Produto < ApplicationRecord
 
 
 
+    
+    def self.alerta_produto_falta
+      produto_falta = Produto.where("quantidade <= ?", 5)
+    end
+
+
+
+
+
     def nome_precodevenda
         "#{nome.upcase + " ----- Preço Sugerido: " + preco_venda.to_s }"
     end

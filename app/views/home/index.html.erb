@@ -1,4 +1,19 @@
 <main class="content">
+
+
+	<%
+	if !@produto_em_baixa.blank?
+
+		@produto_em_baixa.each do |produto|
+%>
+	 <p class="alert alert-danger">O produto <strong> <%= produto.nome %> </strong> está com estoque baixo. Total: <%= produto.quantidade%> <%= notice %></p>
+<%
+
+		end
+	%>
+	<%
+	end
+	%>
 				<div class="container-fluid p-0">
 
 					<%# <h1 class="h3 mb-3"><strong>Análise</strong> Dados</h1> %>
@@ -130,33 +145,9 @@
 
 
 								<div id="piechart" style="width: 500px; height: 400px;"></div>
-										<table class="table table-hover my-0">
-										<thead>
-											<tr>
-											<th>Cliente</th>
-											<th>Produto</th>
-											<th>Quantidade</th>
-											<th>Valor</th>
-											<th>Data da Compra</th>
-											
-											</tr>
-										</thead>
+										
 
-										<tbody>
-											<% @vendas.each do |venda| %>
-											<tr>
-											
-												<td><%= venda.cliente.name %></td> 
-												<td><%= venda.produto.nome %></td>
-												<td><%= venda.quantidade %></td>
-												<td><%= number_to_currency(venda.valor_venda) %></td>
-												<td><%= venda.created_at.strftime("%d/%m/%Y - %H:%m") %></td>
-												
-
-											</tr>
-											<% end %>
-										</tbody>
-										</table>
+									
 							</div>
 						</div>
 						<div class="col-12 col-lg-4 col-xxl-3 d-flex">

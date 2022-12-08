@@ -5,8 +5,17 @@ class Venda < ApplicationRecord
     belongs_to :compra
     belongs_to :devolucao
 
-    def self.total
-        self.sum(:valor_venda)
+      def self.total
+      
+        vendas = Venda.where("DATE(created_at) =?", Date.today)
+        
+        total = 0
+
+        vendas.each do |venda|
+          total += venda.quantidade * venda.valor_venda
+        end
+
+        total
       end
 
 end
